@@ -1,2 +1,2 @@
 ./get.py  | grep '[0-9]\{13\}' | cut -f1 -d":" | awk {'print $1'} | uniq -c 
-find . | grep -v svn | xargs -I{} sh -c 'echo {} | cut -c 3-'
+find . -type f| grep -v svn | xargs -I{} sh -c 'grep -Hn smth {}'
