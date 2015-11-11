@@ -1,0 +1,1 @@
+./get.py  | grep '[0-9]\{13\}' | cut -f1 -d":" | awk {'print $1'} | uniq -c 
