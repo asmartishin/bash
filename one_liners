@@ -7,3 +7,4 @@ rm ~/vim.zip* 2>/dev/null; wget -O ~/vim.zip r.redstate.ru/vim.zip 1>/dev/null 2
 nc -zv6(4) ya.ru 80(443)
 sudo netstat -tulpn | grep 80
 echo "3" | xargs -I{} sh -c "echo {} / 3" | bc | tail -1
+cat bla.txt | grep smth && echo "found" || echo "not found"
