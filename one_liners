@@ -10,3 +10,5 @@ echo "3" | xargs -I{} sh -c "echo {} / 3" | bc | tail -1
 cat bla.txt | grep smth && echo "found" || echo "not found"
 sysv-rc-conf nginx off
 dmidecode --type baseboard | grep -E 'Product Name'
+echo "a:b" | cut -f1 -d ":"
+echo -e "a\nb" | tr '\n' ','
