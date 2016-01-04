@@ -12,3 +12,4 @@ sysv-rc-conf nginx off
 dmidecode --type baseboard | grep -E 'Product Name'
 echo "a:b" | cut -f1 -d ":"
 echo -e "a\nb" | tr '\n' ','
+adduser www-user && adduser www-user sudo && usermod -g www-data www-user
