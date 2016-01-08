@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+HOME=$(echo ~)
+BIN="/usr/bin"
+REMOTE_SERV="www-user@redstate.ru"
+GIT_REPO=$HOME/disk/git/to_repo
+REMOTE_PATH="/home/www-user/repo"
+
+cd $HOME
+zip -r vim.zip ./.vim ./.vimrc
+zip -r profile.zip ./.profile ./.bash_profile
+zip_to_tar vim.zip
+
+ssh $REMOTE_SERV rm $REMOTE_PATH/vim.zip
+ssh $REMOTE_SERV rm $REMOTE_PATH/profile.zip
+ssh $REMOTE_SERV rm $REMOTE_PATH/vim.tar.gz
+
+scp $HOME/vim.zip $REMOTE_SERV:$REMOTE_PATH
+scp $HOME/profile.zip $REMOTE_SERV:$REMOTE_PATH
+scp $HOME/vim.tar.gz $REMOTE_SERV:$REMOTE_PATH
+
+cp $HOME/vim.zip $GIT_REPO/vim/
+cp $HOME/vim.tar.gz $GIT_REPO/vim/
+cp $HOME/profile.zip $GIT_REPO/profile/
+cp $BIN/to_repo $GIT_REPO/
+
+cd $GIT_REPO
+git add ./*
+git commit -a --allow-empty-message -m ''
+git push
+
+#sudo cp $HOME/vim_to_repo /usr/bin/
+#sudo chmod +x /usr/bin/vim_to_repo
+
+rm $HOME/vim.zip
+rm $HOME/profile.zip
+rm $HOME/vim.tar.gz
