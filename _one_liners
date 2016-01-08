@@ -14,3 +14,4 @@ echo "a:b" | cut -f1 -d ":"
 echo -e "a\nb" | tr '\n' ','
 adduser www-user && adduser www-user sudo && usermod -g www-data www-user
 chkconfig -l
+sudo sh -c 'nohup gunicorn --reload --bind 0.0.0.0:5000 run:app >> /var/log/tutorial/access.log 2>&1 &'
