@@ -16,3 +16,4 @@ adduser www-user && adduser www-user sudo && usermod -g www-data www-user
 chkconfig -l
 openssl s_client -connect ya.ru:443
 cat foo.txt | awk {'print $2'} | tail -n +3 | tail -r | tail -n +3 | sort | tr '\n' ' ' | sed 's/bar/ +bar/g'
+diff 1.txt 2.txt | grep -E '<' | sed 's/< //g'
