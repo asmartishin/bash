@@ -19,3 +19,4 @@ cat foo.txt | awk {'print $2'} | tail -n +3 | tail -r | tail -n +3 | sort | tr '
 diff 1.txt 2.txt | grep -E '<' | sed 's/< //g'
 for ((i=1;i<=10;i+=1)); do (time ./tuple_test.py) 2>&1 > /dev/null | grep real | awk {'print $2'} ; done 
 cat hosts.txt | tr '\n' ' '
+for i in foo bar; do echo $i; done
