@@ -1,3 +1,4 @@
+grep import  -r * | grep -v templates | grep -v static | grep -o "import\ .*"  | sed s/import\ // | tr ',' '\n' | sed s/\ // | sort -f | uniq 
 ./get.py  | grep '[0-9]\{13\}' | cut -f1 -d":" | awk {'print $1'} | uniq -c
 du -h | sort -h
 find . -type f| grep -v svn | xargs -I{} sh -c 'grep -Hn balancer-l7 {}' | grep -vE 'standard input' | awk {'print $1'} | cut -c 3- | cut -f1 -d":" | uniq
