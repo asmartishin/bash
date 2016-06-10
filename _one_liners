@@ -23,3 +23,5 @@ for ((i=1;i<=10;i+=1)); do (time ./tuple_test.py) 2>&1 > /dev/null | grep real |
 cat hosts.txt | tr '\n' ' '
 for i in foo bar; do echo $i; done
 if echo 'foo bar' | grep -qE foo; then echo 'found'; else echo 'not found'; fi
+find ru\ center/ -type f -exec readlink -f {} \; | xargs -I {} sed -ir "s/\(192\.168\.1\.10\)\[^0]\|$/\10 /" {}
+sudo netstat -tupn | grep -i mysql | wc -l
