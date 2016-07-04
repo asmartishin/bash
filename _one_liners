@@ -25,3 +25,5 @@ for i in foo bar; do echo $i; done
 if echo 'foo bar' | grep -qE foo; then echo 'found'; else echo 'not found'; fi
 find ru\ center/ -type f -exec readlink -f {} \; | xargs -I {} sed -ir "s/\(192\.168\.1\.10\)\[^0]\|$/\10 /" {}
 sudo netstat -tupn | grep -i mysql | wc -l
+netcat -l -u -p 8000
+netcat -u node.mytty.ru 8000
