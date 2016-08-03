@@ -27,3 +27,4 @@ find ru\ center/ -type f -exec readlink -f {} \; | xargs -I {} sed -ir "s/\(192\
 sudo netstat -tupn | grep -i mysql | wc -l
 netcat -l -u -p 8000
 netcat -u node.mytty.ru 8000
+/githubAccess.js > ~/githubAccess.log 2>&1 &
