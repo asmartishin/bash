@@ -28,3 +28,4 @@ sudo netstat -tupn | grep -i mysql | wc -l
 netcat -l -u -p 8000
 netcat -u node.mytty.ru 8000
 /githubAccess.js > ~/githubAccess.log 2>&1 &
+truncate -s 0 access.log
