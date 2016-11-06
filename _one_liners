@@ -1,4 +1,4 @@
-sshfs -o reconnect allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa user@server:/path ./
+sshfs -o reconnect,allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa monkey@mdev.haze.yandex.net:/home/monkey/ ./
 grep import  -r * | grep -v templates | grep -v static | grep -o "import\ .*"  | sed s/import\ // | tr ',' '\n' | sed s/\ // | sort -f | uniq 
 ./get.py  | grep '[0-9]\{13\}' | cut -f1 -d":" | awk {'print $1'} | uniq -c
 du -h | sort -h
