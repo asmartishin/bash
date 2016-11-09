@@ -31,3 +31,4 @@ netcat -u node.mytty.ru 8000
 truncate -s 0 access.log
 cat hosts | awk {'print $2'} | xargs -I{} sh -c 'if ping6 -c 1 {}; then echo 1; else  echo 0; fi'
 for i in $(seq 1 20000); do curl https://foo.ru/$i >> ~/tmp/urls && echo "https://foo.ru/$i" >> ~/tmp/urls; done
+ssh -vvv -o PreferredAuthentications=password -o PubkeyAuthentication=no root@mytty.ru
