@@ -5,9 +5,9 @@ FILENAME=$@
 cat << EOF >> $FILENAME
 #!/usr/bin/env python
 
-import sys
-
 
 if __name__ == 'main':
     pass
 EOF
+
+vim $FILENAME
