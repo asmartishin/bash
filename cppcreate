@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+FILENAME=$@
+
+if [ -f $FILENAME ]; then
+    exit
+fi
+
+cat << EOF >> $FILENAME
+#include <iostream>
+
+using namespace std;
+
+
+int main() {
+    return 0;
+}
+EOF
+
+vim $FILENAME
