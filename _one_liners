@@ -33,4 +33,4 @@ cat hosts | awk {'print $2'} | xargs -I{} sh -c 'if ping6 -c 1 {}; then echo 1; 
 for i in $(seq 1 20000); do curl https://foo.ru/$i >> ~/tmp/urls && echo "https://foo.ru/$i" >> ~/tmp/urls; done
 ssh -vvv -o PreferredAuthentications=password -o PubkeyAuthentication=no root@mytty.ru
 for f in $(ls); do n="$(echo $f | grep -o '[0-9]\+')"; mv $f $n; done
-cat domains_end.txt | ggrep -oP 'https?://\K.+(?=/)'
+cat domains_end.txt | ggrep -oP 'https?://\K.+' | sed 's/\(.*\)\/$/\1/g' 
