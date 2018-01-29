@@ -35,3 +35,4 @@ ssh -vvv -o PreferredAuthentications=password -o PubkeyAuthentication=no root@my
 for f in $(ls); do n="$(echo $f | grep -o '[0-9]\+')"; mv $f $n; done
 cat domains_end.txt | ggrep -oP 'https?://\K.+' | sed 's/\(.*\)\/$/\1/g' 
 grep -rl '\-Werror' * | xargs -i{} sed -i 's/-g/-g -O0/g' {}
+curl -X POST -H 'Content-Type: application/json' -d '{"name": "alex"}' localhost:8080/api/create
