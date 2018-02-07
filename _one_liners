@@ -37,3 +37,4 @@ cat domains_end.txt | ggrep -oP 'https?://\K.+' | sed 's/\(.*\)\/$/\1/g'
 grep -rl '\-Werror' * | xargs -i{} sed -i 's/-g/-g -O0/g' {}
 curl -X POST -H 'Content-Type: application/json' -d '{"name": "alex"}' localhost:8080/api/create
 sudo stdbuf -oL -eL /usr/sbin/tcpdump -A -s 10240 "tcp port 8080" > log 2>&1
+cat my.log | sed -n -e 's/^.*All will match after this: //p'
