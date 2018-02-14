@@ -34,7 +34,7 @@ for i in $(seq 1 20000); do curl https://foo.ru/$i >> ~/tmp/urls && echo "https:
 ssh -vvv -o PreferredAuthentications=password -o PubkeyAuthentication=no root@mytty.ru
 for f in $(ls); do n="$(echo $f | grep -o '[0-9]\+')"; mv $f $n; done
 cat domains_end.txt | ggrep -oP 'https?://\K.+' | sed 's/\(.*\)\/$/\1/g' 
-grep -rl '\-Werror' * | xargs -i{} sed -i 's/-g/-g -O0/g' {} # on mac: grep -El 'smth1' -r * | xargs -I {} sed -i'' -e 'smth2' {}
+grep -rl '\-Werror' * | xargs -i{} sed -i 's/-g/-g -O0/g' {} # on mac: grep -El 'smth1' -r * | xargs -I {} sed -i'.bak' 'smth2' {}
 curl -X POST -H 'Content-Type: application/json' -d '{"name": "alex"}' localhost:8080/api/create
 sudo stdbuf -oL -eL /usr/sbin/tcpdump -A -s 10240 "tcp port 8080" > log 2>&1
 cat my.log | sed -n -e 's/^.*All will match after this: //p'
